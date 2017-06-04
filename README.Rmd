@@ -1,0 +1,70 @@
+---
+title: "README"
+author: "Callum Taylor"
+date: "4 June 2017"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ckanr)
+library(jsonlite)
+library(dplyr)
+library(hdxr)
+```
+
+# hdxr
+A package, storing functions to make my life easier when getting data from Humanitarian Data Exchange
+
+I have uploaded this to share the code I made for this [post](https://callumgwtaylor.github.io/blog/2017/06/04/getting-data-from-humanitarian-data-exchange-in-a-reproducible-r-pipeline/)
+
+I found it useful for me, but I could see it being messy and frustrating for others! If you read my post and wanted to use these functions, then you're very welcome to try using this mini package. But this is **not** neat and **not** polished. It also might not work for you or your needs!
+
+Installation:
+
+`install_github("callumgwtaylor/hdxr")`
+
+Load:
+
+```
+library(ckanr)
+library(jsonlite)
+library(dplyr)
+library(hdxr)
+```
+
+Usage:
+
+```{r usage}
+
+# Connect to the HDX server
+hdx_connect()
+
+# Download a list of packages available from HDX
+list <- hdx_list(500)
+
+dim(list)
+
+head(list)
+
+# Search for a specific package, then filter by title using dplyr
+hum_data <- hdx_package_search("ACLED Conflict Data") %>%
+  filter(title == "ACLED Conflict Data for Algeria")
+
+names(hum_data)
+
+# Expand the resources section from the search you just performed
+hum_resoures <- hdx_resource_list(hum_data)
+
+names(hum_resoures)
+
+# You can use column `format` to filter for the type of data you want
+hum_resoures$format
+
+# You can use column `hdx_rel_url` to find the address of the resource you want
+hum_resoures$hdx_rel_url
+```
+
+
+
+
