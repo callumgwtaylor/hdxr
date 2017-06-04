@@ -8,5 +8,5 @@
 #' hdx_connect()
 
 hdx_connect <- function(){
-  ckanr_setup(url = "http://data.humdata.org/")
+  ckanr::ckanr_setup(url = "http://data.humdata.org/")
 }

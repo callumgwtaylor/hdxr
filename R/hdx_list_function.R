@@ -9,6 +9,6 @@
 
 
 hdx_list <- function(limit = 5000){
-  package_list(as = 'table', limit = limit) %>%
+  ckanr::package_list(as = 'table', limit = limit) %>%
     as_data_frame(.)
 }

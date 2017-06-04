@@ -8,7 +8,7 @@
 #' hdx_package_search()
 
 hdx_package_search <- function(term){
-  package_search(q = term, as = "json") %>%
+  ckanr::package_search(q = term, as = "json") %>%
     jsonlite::fromJSON(., flatten = TRUE) %>%
     .$result %>%
     .$results
