@@ -2,6 +2,7 @@
 #'
 #' This function will create a data frame of search results from HDX
 #' @param term Title to search for. No default
+#' @param rows Max number of rows to return. Default is 10
 #' @keywords search hdx
 #' @export
 #' @examples
