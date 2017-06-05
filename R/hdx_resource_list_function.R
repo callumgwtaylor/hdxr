@@ -9,7 +9,7 @@
 
 hdx_resource_list <- function(package){
   package$resources %>%
-    as.data.frame(.) %>%
-    left_join(package, ., by = c("id" = "package_id")) %>%
+    bind_rows(.) %>%
+    left_join(package, ., by = c("id" = "package_id"), suffix = c(".package", ".resources")) %>%
     select(-resources)
 }
