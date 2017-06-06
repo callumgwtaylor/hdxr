@@ -4,6 +4,7 @@
 #' @param term Title to search for. No default
 #' @param rows Max number of rows to return. Default is 10
 #' @keywords search hdx
+#' @importFrom magrittr "%>%"
 #' @export
 #' @examples
 #' hdx_package_search()

@@ -4,10 +4,12 @@
 \alias{hdx_package_search}
 \title{HDX Package Search Function}
 \usage{
-hdx_package_search(term)
+hdx_package_search(term = "*:*", rows = 10, start = NULL)
 }
 \arguments{
 \item{term}{Title to search for. No default}
+
+\item{rows}{Max number of rows to return. Default is 10}
 }
 \description{
 This function will create a data frame of search results from HDX

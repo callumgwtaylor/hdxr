@@ -1,7 +1,6 @@
 #' HDX Connect Function
 #'
 #' This function connects you to the CKAN server for HDX
-#' @param NONE
 #' @keywords connect hdx
 #' @export
 #' @examples
