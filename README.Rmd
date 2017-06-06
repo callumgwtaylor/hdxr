@@ -21,10 +21,14 @@ I have uploaded this to share the code I made for this [post](https://callumgwta
 
 I found it useful for me, but I could see it being messy and frustrating for others! If you read my post and wanted to use these functions, then you're very welcome to try using this mini package. But this is **not** neat and **not** polished. It also might not work for you or your needs! This package will be continually updated over the next while until we think it's vaguely reliable.
 
-Installation:
 
+Installation:
 `library(devtools)`
 `install_github("callumgwtaylor/hdxr")`
+
++ if you haven't already got these:
+`install.packages("ckanr")`
+`install.packages("jsonlite")`
 
 Load:
 
