@@ -11,6 +11,6 @@
 hdx_resource_list <- function(package){
   package$resources %>%
     dplyr::bind_rows(.) %>%
-    dplyr::left_join(package, ., by = c("id" = "package_id"), suffix = c(".package", ".resources")) %>%
+    dplyr::left_join(., package, by = c("package_id" = "id"), suffix = c(".resources", ".package")) %>%
     dplyr::select(-resources)
 }
