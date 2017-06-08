@@ -1,7 +1,7 @@
 ---
 title: "README"
 author: "Callum Taylor"
-date: "4 June 2017"
+date: "8 June 2017"
 output: github_document
 ---
 
@@ -26,7 +26,7 @@ Installation:
 `library(devtools)`
 `install_github("callumgwtaylor/hdxr")`
 
-+ if you haven't already got these:
+if you haven't already got these then you'll need them also:
 `install.packages("ckanr")`
 `install.packages("jsonlite")`
 
@@ -58,6 +58,10 @@ names(hum_data)
 
 # Expand the resources section from the search you just performed
 hum_resoures <- hdx_resource_list(hum_data)
+
+# The results can also be piped:
+hum_resources <- hdx_package_search("ACLED Conflict Data") %>%
+  hdx_resource_list()
 
 names(hum_resoures)
 
