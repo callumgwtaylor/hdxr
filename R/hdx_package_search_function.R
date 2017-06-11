@@ -17,6 +17,8 @@ hdx_package_search <- function(term = '*:*', rows = 10, start = NULL){
 
   names(data)[names(data) == ""] <- "missing_name"
 
-  data %>%
-    dplyr::select(-missing_name)
+  # data %>%
+  #   dplyr::select(-missing_name)
+
+  data
 }
