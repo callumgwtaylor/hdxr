@@ -6,15 +6,23 @@ Callum Taylor
 hdxr
 ====
 
-A package, storing functions to make my life easier when getting data from Humanitarian Data Exchange
+A package, storing functions to make my life easier when getting data from Humanitarian Data Exchange.
 
 I have uploaded this to share the code I made for this [post](https://callumgwtaylor.github.io/blog/2017/06/04/getting-data-from-humanitarian-data-exchange-in-a-reproducible-r-pipeline/)
 
 I found it useful for me, but I could see it being messy and frustrating for others! If you read my post and wanted to use these functions, then you're very welcome to try using this mini package. But this is **not** neat and **not** polished. It also might not work for you or your needs! This package will be continually updated over the next while until we think it's vaguely reliable.
 
-Installation: `library(devtools)` `install_github("callumgwtaylor/hdxr")`
+Installation:
 
-if you haven't already got these then you'll need them also: `install.packages("ckanr")` `install.packages("jsonlite")`
+`library(devtools)`
+
+`install_github("callumgwtaylor/hdxr")`
+
+if you haven't already got these then you'll need them also:
+
+`install.packages("ckanr")`
+
+`install.packages("jsonlite")`
 
 Load:
 
@@ -182,3 +190,49 @@ hum_resoures$hdx_rel_url
 ```
 
     ## [1] "http://www.acleddata.com/wp-content/uploads/2016/01/Algeria.xlsx"
+
+``` r
+# You can use hdx_resource_csv to download csv files from the server into a nested dataframe. This can all be done in a pipeline.
+
+hdx_package_search() %>%
+  hdx_resource_list() %>%
+  hdx_resource_csv()
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   code = col_character(),
+    ##   title = col_character(),
+    ##   value = col_integer(),
+    ##   latest_date = col_date(format = ""),
+    ##   source = col_character(),
+    ##   source_link = col_character(),
+    ##   notes = col_character(),
+    ##   explore = col_character(),
+    ##   units = col_character()
+    ## )
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   DISP_DATE = col_character(),
+    ##   ORIG_PROV_CODE = col_character(),
+    ##   ORIG_PROV_NAME = col_character(),
+    ##   ORIG_DIST_CODE = col_character(),
+    ##   ORIG_DIST_NAME = col_character(),
+    ##   DISP_PROV_CODE = col_character(),
+    ##   DISP_PROV_NAME = col_character(),
+    ##   DISP_DIST_CODE = col_character(),
+    ##   DISP_DIST_NAME = col_character(),
+    ##   DISP_IND = col_character(),
+    ##   DISP_FAM = col_character(),
+    ##   DISP_ADULT_MALE = col_character(),
+    ##   DISP_ADULT_FEMALE = col_character(),
+    ##   DISP_CHILDREN_U18 = col_character()
+    ## )
+
+    ## # A tibble: 2 x 3
+    ##                                                            dataset_identifier
+    ##                                                                         <chr>
+    ## 1                            ocha-afghanistan-topline-figures_topline_figures
+    ## 2 afghanistan-conflict-induced-displacements-in-2017_Afghanistan_Conflict_Dis
+    ## # ... with 2 more variables: hdx_rel_url <chr>, csv <list>
