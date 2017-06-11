@@ -13,7 +13,7 @@ hdx_resource_csv <- function(resources){
     readr::read_csv(resources$hdx_rel_url)
   }
 
-  as_data_frame(resources) %>%
+  dplyr::as_data_frame(resources) %>%
     dplyr::select(format, hdx_rel_url, name.resources, name.package) %>%
     dplyr::filter(format == "CSV") %>%
     dplyr::mutate(name.resources = stringr::str_replace_all(name.resources, " ", "_")) %>%
