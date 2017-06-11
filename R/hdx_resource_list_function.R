@@ -9,8 +9,12 @@
 #' hdx_resource_list()
 
 hdx_resource_list <- function(package){
-  package$resources %>%
-    dplyr::bind_rows(.) %>%
+  data <- package$resources %>%
+    dplyr::bind_rows(.)
+
+  names(data)[names(data) == ""] <- "missing_name"
+
+  data %>%
     dplyr::left_join(., package, by = c("package_id" = "id"), suffix = c(".resources", ".package")) %>%
     dplyr::select(-resources)
 }
