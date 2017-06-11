@@ -26,5 +26,6 @@ hdx_resource_csv <- function(resources){
     dplyr::group_by(dataset_identifier) %>%
     tidyr::nest(.key = location) %>%
     dplyr::mutate(hdx_rel_url = purrr::map_chr(location, "hdx_rel_url")) %>%
-    dplyr::mutate(csv = purrr::map(location, hdx_read_url))
+    dplyr::mutate(csv = purrr::map(location, hdx_read_url)) %>%
+    dplyr::select(-location)
 }
