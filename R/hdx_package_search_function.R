@@ -10,8 +10,13 @@
 #' hdx_package_search()
 
 hdx_package_search <- function(term = '*:*', rows = 10, start = NULL){
-  ckanr::package_search(q = term, as = "json", rows = rows, start = start) %>%
+  data <- ckanr::package_search(q = term, as = "json", rows = rows, start = start) %>%
     jsonlite::fromJSON(., flatten = TRUE) %>%
     .$result %>%
     .$results
+
+  names(data)[names(data) == ""] <- "missing_name"
+
+  data %>%
+    dplyr::select(-missing_name)
 }
