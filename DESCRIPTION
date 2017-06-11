@@ -7,9 +7,12 @@ Depends: R (>= 3.4.0)
 License: MIT
 Imports:
   dplyr,
+  tidyr,
   ckanr,
   jsonlite,
-  magrittr
+  magrittr,
+  purrr,
+  readr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1.9000
