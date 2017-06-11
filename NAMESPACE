@@ -3,5 +3,6 @@
 export(hdx_connect)
 export(hdx_list)
 export(hdx_package_search)
+export(hdx_resource_csv)
 export(hdx_resource_list)
 importFrom(magrittr,"%>%")
