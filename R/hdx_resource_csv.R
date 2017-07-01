@@ -14,7 +14,7 @@ hdx_resource_csv <- function(resources){
   }
 
   dplyr::as_data_frame(resources) %>%
-    dplyr::select(format, hdx_rel_url, name.resources, name.package) %>%
+    # dplyr::select(format, hdx_rel_url, name.resources, name.package) %>%
     dplyr::filter(format == "CSV") %>%
     dplyr::mutate(name.resources = stringr::str_replace_all(name.resources, " ", "_")) %>%
     dplyr::mutate(name.package = stringr::str_replace_all(name.package, " ", "_")) %>%
@@ -24,7 +24,7 @@ hdx_resource_csv <- function(resources){
     tidyr::unite(dataset_identifier, name.package, name.resources, sep = "_", remove = TRUE) %>%
     dplyr::select(-format) %>%
     dplyr::group_by(dataset_identifier) %>%
-    tidyr::nest(.key = location) %>%
+    tidyr::nest(hdx_rel_url, .key = location) %>%
     dplyr::mutate(hdx_rel_url = purrr::map_chr(location, "hdx_rel_url")) %>%
     dplyr::mutate(csv = purrr::map(location, hdx_read_url)) %>%
     dplyr::select(-location)

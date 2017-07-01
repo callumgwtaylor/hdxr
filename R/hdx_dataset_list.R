@@ -1,4 +1,4 @@
-#' HDX List Function
+#' HDX Dataset List Function
 #'
 #' This function will create a data frame of package titles
 #' @param limit Limit of packages to search for. Defaults to 5000
@@ -6,10 +6,10 @@
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' hdx_list()
+#' hdx_datasetlist()
 
 
-hdx_list <- function(limit = 5000){
+hdx_dataset_list <- function(limit = 5000){
   ckanr::package_list(as = 'table', limit = limit) %>%
     dplyr::as_data_frame(.)
 }
