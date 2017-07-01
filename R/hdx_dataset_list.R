@@ -6,7 +6,7 @@
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' hdx_datasetlist()
+#' hdx_dataset_list()
 
 
 hdx_dataset_list <- function(limit = 5000){
