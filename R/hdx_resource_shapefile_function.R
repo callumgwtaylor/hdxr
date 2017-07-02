@@ -27,9 +27,9 @@ hdx_resource_shapefile <- function(resources){
   folder_location <- stringr::str_c(c("./", folder_name), collapse = "")
 
   #This section then extracts the url from the dataframe, downloads and extracts the file that we want
-  httr::GET(hdx_shapefiles$hdx_rel_url[1], write_disk(file_name, overwrite=TRUE))
+  httr::GET(hdx_shapefiles$hdx_rel_url[1], httr::write_disk(file_name, overwrite=TRUE))
   dir.create(folder_name)
-  unzip(file_name, overwrite = TRUE, exdir = folder_name)
+  utils::unzip(file_name, overwrite = TRUE, exdir = folder_name)
 
 
   # This section  works out what we've just downloaded and extracts the names
