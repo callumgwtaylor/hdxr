@@ -19,7 +19,7 @@ library(hdxr)
 
 hdxr is a package designed to allow you to interact with Humanitarian Data Exchange (HDX) in R, allowing for more reproducible workflow with humanitarian data.
 
-Currently it has functions, that can read information from:
+Currently it has functions that can read information from:
 
 - Datasets
 - Resources

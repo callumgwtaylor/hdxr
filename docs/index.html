@@ -31,7 +31,7 @@
 <li>
   <a href="/index.html">
     <span class="fa fa-home fa-lg"></span>
-     
+
   </a>
 </li>
 <li>
@@ -45,7 +45,7 @@
 <li>
   <a href="https://github.com/callumgwtaylor/hdxr">
     <span class="fa fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul>
@@ -56,19 +56,19 @@
 </div>
 <!--/.navbar -->
 
-      
+
       </header><div class="row">
   <div class="col-md-9">
-    
 
-    
-    
+
+
+
 <div class="contents">
 <div id="hdxr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#hdxr" class="anchor"></a>hdxr</h1></div>
 <p>hdxr is a package designed to allow you to interact with Humanitarian Data Exchange (HDX) in R, allowing for more reproducible workflow with humanitarian data.</p>
-<p>Currently it has functions, that can read information from:</p>
+<p>Currently it has functions that can read information from:</p>
 <ul>
 <li>Datasets</li>
 <li>Resources</li>
@@ -169,31 +169,31 @@ dataset &lt;-<span class="st"> </span><span class="kw"><a href="reference/hdx_da
 dataset &lt;-<span class="st"> </span><span class="kw"><a href="reference/hdx_dataset_search.html">hdx_dataset_search</a></span>(<span class="st">"acled-conflict-data-for-algeria"</span>, <span class="dt">exact =</span> <span class="ot">TRUE</span>)
 
 <span class="kw">names</span>(dataset)</code></pre></div>
-<pre><code>##  [1] "data_update_frequency"        "license_title"               
-##  [3] "maintainer"                   "relationships_as_object"     
-##  [5] "package_creator"              "private"                     
-##  [7] "dataset_date"                 "num_tags"                    
-##  [9] "solr_additions"               "id"                          
-## [11] "metadata_created"             "methodology_other"           
-## [13] "caveats"                      "metadata_modified"           
-## [15] "author"                       "author_email"                
-## [17] "subnational"                  "state"                       
-## [19] "methodology"                  "version"                     
-## [21] "dataset_source"               "license_id"                  
-## [23] "type"                         "resources"                   
-## [25] "num_resources"                "tags"                        
-## [27] "groups"                       "creator_user_id"             
-## [29] "maintainer_email"             "relationships_as_subject"    
-## [31] "name"                         "isopen"                      
-## [33] "url"                          "notes"                       
-## [35] "owner_org"                    "license_url"                 
-## [37] "title"                        "revision_id"                 
-## [39] "tracking_summary.total"       "tracking_summary.recent"     
-## [41] "organization.description"     "organization.created"        
-## [43] "organization.title"           "organization.name"           
-## [45] "organization.is_organization" "organization.state"          
-## [47] "organization.image_url"       "organization.revision_id"    
-## [49] "organization.type"            "organization.id"             
+<pre><code>##  [1] "data_update_frequency"        "license_title"
+##  [3] "maintainer"                   "relationships_as_object"
+##  [5] "package_creator"              "private"
+##  [7] "dataset_date"                 "num_tags"
+##  [9] "solr_additions"               "id"
+## [11] "metadata_created"             "methodology_other"
+## [13] "caveats"                      "metadata_modified"
+## [15] "author"                       "author_email"
+## [17] "subnational"                  "state"
+## [19] "methodology"                  "version"
+## [21] "dataset_source"               "license_id"
+## [23] "type"                         "resources"
+## [25] "num_resources"                "tags"
+## [27] "groups"                       "creator_user_id"
+## [29] "maintainer_email"             "relationships_as_subject"
+## [31] "name"                         "isopen"
+## [33] "url"                          "notes"
+## [35] "owner_org"                    "license_url"
+## [37] "title"                        "revision_id"
+## [39] "tracking_summary.total"       "tracking_summary.recent"
+## [41] "organization.description"     "organization.created"
+## [43] "organization.title"           "organization.name"
+## [45] "organization.is_organization" "organization.state"
+## [47] "organization.image_url"       "organization.revision_id"
+## [49] "organization.type"            "organization.id"
 ## [51] "organization.approval_status"</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Expand the resources section from the search you just performed</span>
 resources &lt;-<span class="st"> </span><span class="kw"><a href="reference/hdx_resource_list.html">hdx_resource_list</a></span>(dataset)
@@ -203,79 +203,79 @@ resources &lt;-<span class="st"> </span><span class="kw"><a href="reference/hdx_
 <span class="st">  </span><span class="kw"><a href="reference/hdx_resource_list.html">hdx_resource_list</a></span>()
 
 <span class="kw">names</span>(resources)</code></pre></div>
-<pre><code>##  [1] "cache_last_updated"               
-##  [2] "package_id"                       
-##  [3] "webstore_last_updated"            
-##  [4] "id"                               
-##  [5] "size"                             
-##  [6] "revision_last_updated"            
-##  [7] "state.resources"                  
-##  [8] "hash"                             
-##  [9] "description"                      
-## [10] "format"                           
-## [11] "hdx_rel_url"                      
-## [12] "last_modified"                    
-## [13] "url_type"                         
-## [14] "mimetype"                         
-## [15] "cache_url"                        
-## [16] "name.resources"                   
-## [17] "created"                          
-## [18] "url.resources"                    
-## [19] "webstore_url"                     
-## [20] "mimetype_inner"                   
-## [21] "position"                         
-## [22] "revision_id.resources"            
-## [23] "resource_type"                    
-## [24] "tracking_summary.total.resources" 
+<pre><code>##  [1] "cache_last_updated"
+##  [2] "package_id"
+##  [3] "webstore_last_updated"
+##  [4] "id"
+##  [5] "size"
+##  [6] "revision_last_updated"
+##  [7] "state.resources"
+##  [8] "hash"
+##  [9] "description"
+## [10] "format"
+## [11] "hdx_rel_url"
+## [12] "last_modified"
+## [13] "url_type"
+## [14] "mimetype"
+## [15] "cache_url"
+## [16] "name.resources"
+## [17] "created"
+## [18] "url.resources"
+## [19] "webstore_url"
+## [20] "mimetype_inner"
+## [21] "position"
+## [22] "revision_id.resources"
+## [23] "resource_type"
+## [24] "tracking_summary.total.resources"
 ## [25] "tracking_summary.recent.resources"
-## [26] "data_update_frequency"            
-## [27] "license_title"                    
-## [28] "maintainer"                       
-## [29] "relationships_as_object"          
-## [30] "package_creator"                  
-## [31] "private"                          
-## [32] "dataset_date"                     
-## [33] "num_tags"                         
-## [34] "solr_additions"                   
-## [35] "metadata_created"                 
-## [36] "methodology_other"                
-## [37] "caveats"                          
-## [38] "metadata_modified"                
-## [39] "author"                           
-## [40] "author_email"                     
-## [41] "subnational"                      
-## [42] "state.package"                    
-## [43] "methodology"                      
-## [44] "version"                          
-## [45] "dataset_source"                   
-## [46] "license_id"                       
-## [47] "type"                             
-## [48] "num_resources"                    
-## [49] "tags"                             
-## [50] "groups"                           
-## [51] "creator_user_id"                  
-## [52] "maintainer_email"                 
-## [53] "relationships_as_subject"         
-## [54] "name.package"                     
-## [55] "isopen"                           
-## [56] "url.package"                      
-## [57] "notes"                            
-## [58] "owner_org"                        
-## [59] "license_url"                      
-## [60] "title"                            
-## [61] "revision_id.package"              
-## [62] "tracking_summary.total.package"   
-## [63] "tracking_summary.recent.package"  
-## [64] "organization.description"         
-## [65] "organization.created"             
-## [66] "organization.title"               
-## [67] "organization.name"                
-## [68] "organization.is_organization"     
-## [69] "organization.state"               
-## [70] "organization.image_url"           
-## [71] "organization.revision_id"         
-## [72] "organization.type"                
-## [73] "organization.id"                  
+## [26] "data_update_frequency"
+## [27] "license_title"
+## [28] "maintainer"
+## [29] "relationships_as_object"
+## [30] "package_creator"
+## [31] "private"
+## [32] "dataset_date"
+## [33] "num_tags"
+## [34] "solr_additions"
+## [35] "metadata_created"
+## [36] "methodology_other"
+## [37] "caveats"
+## [38] "metadata_modified"
+## [39] "author"
+## [40] "author_email"
+## [41] "subnational"
+## [42] "state.package"
+## [43] "methodology"
+## [44] "version"
+## [45] "dataset_source"
+## [46] "license_id"
+## [47] "type"
+## [48] "num_resources"
+## [49] "tags"
+## [50] "groups"
+## [51] "creator_user_id"
+## [52] "maintainer_email"
+## [53] "relationships_as_subject"
+## [54] "name.package"
+## [55] "isopen"
+## [56] "url.package"
+## [57] "notes"
+## [58] "owner_org"
+## [59] "license_url"
+## [60] "title"
+## [61] "revision_id.package"
+## [62] "tracking_summary.total.package"
+## [63] "tracking_summary.recent.package"
+## [64] "organization.description"
+## [65] "organization.created"
+## [66] "organization.title"
+## [67] "organization.name"
+## [68] "organization.is_organization"
+## [69] "organization.state"
+## [70] "organization.image_url"
+## [71] "organization.revision_id"
+## [72] "organization.type"
+## [73] "organization.id"
 ## [74] "organization.approval_status"</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can use column `format` to filter for the type of data you want</span>
 resources$format</code></pre></div>
