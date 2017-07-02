@@ -12,7 +12,10 @@ Imports:
   jsonlite,
   magrittr,
   purrr,
-  readr
+  readr,
+  httr,
+  sf,
+  stringr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1.9000

@@ -6,7 +6,7 @@
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' hdx_resource_list()
+#' hdx_resource_csv()
 
 hdx_resource_csv <- function(resources){
   hdx_read_url <- function(resources){
