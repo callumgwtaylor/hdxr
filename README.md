@@ -336,10 +336,7 @@ afghanistan <- hdx_dataset_search("afghanistan-roads", exact = TRUE) %>%
   hdx_resource_shapefile()
 ```
 
-    ## Warning in dir.create(folder_name): 'afg_roads_lin_aims_osmap' already
-    ## exists
-
-    ## Reading layer `afg_roads_lin_oasis_osmap' from data source `\R\hdxr\afg_roads_lin_aims_osmap' using driver `ESRI Shapefile'
+    ## Reading layer `afg_roads_lin_oasis_osmap' from data source `R\hdxr\afg_roads_lin_aims_osmap' using driver `ESRI Shapefile'
     ## replacing null geometries with empty geometries
     ## Simple feature collection with 6645 features and 9 fields (with 3 geometries empty)
     ## geometry type:  GEOMETRY
