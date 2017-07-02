@@ -7,7 +7,9 @@
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' hdx_dataset_search() %>% hdx_resource_list() %>% hdx_resource_csv()
+#' dataset <- hdx_dataset_search()
+#' resources <- hdx_resource_list(dataset)
+#' csv <- hdx_resource_csv(resources)
 
 hdx_resource_csv <- function(resources){
   hdx_read_url <- function(resources){

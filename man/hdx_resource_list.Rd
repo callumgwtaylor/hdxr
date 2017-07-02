@@ -14,5 +14,6 @@ This function modify the results of a hdx_dataset_search function.
 It will expand the resources section and left join these results onto the original dataframe.
 }
 \examples{
-hdx_dataset_search() \%>\% hdx_resource_list()
+dataset <- hdx_dataset_search()
+resources <- hdx_resource_list(dataset)
 }

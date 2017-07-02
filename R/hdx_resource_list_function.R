@@ -6,7 +6,8 @@
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' hdx_dataset_search() %>% hdx_resource_list()
+#' dataset <- hdx_dataset_search()
+#' resources <- hdx_resource_list(dataset)
 
 hdx_resource_list <- function(package){
   resources_data <- package$resources %>%

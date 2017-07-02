@@ -104,7 +104,36 @@ It will download csvs when available, and return them in a nested dataframe.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='hdx_dataset_search.html'>hdx_dataset_search</a></span>() <span class='kw'>%&gt;%</span> <span class='fu'><a href='hdx_resource_list.html'>hdx_resource_list</a></span>() <span class='kw'>%&gt;%</span> <span class='fu'>hdx_resource_csv</span>()</div><div class='output co'>#&gt; <span class='error'>Error in hdx_dataset_search() %&gt;% hdx_resource_list() %&gt;% hdx_resource_csv(): could not find function "%&gt;%"</span></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='hdx_dataset_search.html'>hdx_dataset_search</a></span>()
+<span class='no'>resources</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='hdx_resource_list.html'>hdx_resource_list</a></span>(<span class='no'>dataset</span>)
+<span class='no'>csv</span> <span class='kw'>&lt;-</span> <span class='fu'>hdx_resource_csv</span>(<span class='no'>resources</span>)</div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  code = col_character(),</span>
+#&gt; <span class='message'>  title = col_character(),</span>
+#&gt; <span class='message'>  value = col_integer(),</span>
+#&gt; <span class='message'>  latest_date = col_date(format = ""),</span>
+#&gt; <span class='message'>  source = col_character(),</span>
+#&gt; <span class='message'>  source_link = col_character(),</span>
+#&gt; <span class='message'>  notes = col_character(),</span>
+#&gt; <span class='message'>  explore = col_character(),</span>
+#&gt; <span class='message'>  units = col_character()</span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  DISP_DATE = col_character(),</span>
+#&gt; <span class='message'>  ORIG_PROV_CODE = col_character(),</span>
+#&gt; <span class='message'>  ORIG_PROV_NAME = col_character(),</span>
+#&gt; <span class='message'>  ORIG_DIST_CODE = col_character(),</span>
+#&gt; <span class='message'>  ORIG_DIST_NAME = col_character(),</span>
+#&gt; <span class='message'>  DISP_PROV_CODE = col_character(),</span>
+#&gt; <span class='message'>  DISP_PROV_NAME = col_character(),</span>
+#&gt; <span class='message'>  DISP_DIST_CODE = col_character(),</span>
+#&gt; <span class='message'>  DISP_DIST_NAME = col_character(),</span>
+#&gt; <span class='message'>  DISP_IND = col_character(),</span>
+#&gt; <span class='message'>  DISP_FAM = col_character(),</span>
+#&gt; <span class='message'>  DISP_ADULT_MALE = col_character(),</span>
+#&gt; <span class='message'>  DISP_ADULT_FEMALE = col_character(),</span>
+#&gt; <span class='message'>  DISP_CHILDREN_U18 = col_character()</span>
+#&gt; <span class='message'>)</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

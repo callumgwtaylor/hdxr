@@ -9,7 +9,10 @@
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' hdx_dataset_search() %>% hdx_resource_list() %>% hdx_resource_shapefile()
+#' dataset <- hdx_dataset_search()
+#' resources <- hdx_resource_list(dataset)
+#' shapefile <- hdx_resource_shapefile(resources)
+
 
 hdx_resource_shapefile <- function(resources){
   # This takes the output of hdx_resource_list and looks for distinct urls to download zipped shapefiles from

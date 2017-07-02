@@ -16,5 +16,7 @@ It will create a new folder with the name of the shapefile, and unzip the shapef
 It will then load the first shapefile from this directory into the environment, in simple features format.
 }
 \examples{
-hdx_dataset_search() \%>\% hdx_resource_list() \%>\% hdx_resource_shapefile()
+dataset <- hdx_dataset_search()
+resources <- hdx_resource_list(dataset)
+shapefile <- hdx_resource_shapefile(resources)
 }

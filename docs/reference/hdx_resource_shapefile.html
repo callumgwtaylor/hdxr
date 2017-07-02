@@ -106,7 +106,15 @@ It will then load the first shapefile from this directory into the environment, 
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='hdx_dataset_search.html'>hdx_dataset_search</a></span>() <span class='kw'>%&gt;%</span> <span class='fu'><a href='hdx_resource_list.html'>hdx_resource_list</a></span>() <span class='kw'>%&gt;%</span> <span class='fu'>hdx_resource_shapefile</span>()</div><div class='output co'>#&gt; <span class='error'>Error in hdx_dataset_search() %&gt;% hdx_resource_list() %&gt;% hdx_resource_shapefile(): could not find function "%&gt;%"</span></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>dataset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='hdx_dataset_search.html'>hdx_dataset_search</a></span>()
+<span class='no'>resources</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='hdx_resource_list.html'>hdx_resource_list</a></span>(<span class='no'>dataset</span>)
+<span class='no'>shapefile</span> <span class='kw'>&lt;-</span> <span class='fu'>hdx_resource_shapefile</span>(<span class='no'>resources</span>)</div><div class='output co'>#&gt; Reading layer `hotosm_syr_waterways_lines' from data source `R\hdxr\docs\reference\hotosm_syr_waterways_lines_shp' using driver `ESRI Shapefile'
+#&gt; Simple feature collection with 4534 features and 12 fields
+#&gt; geometry type:  MULTILINESTRING
+#&gt; dimension:      XY
+#&gt; bbox:           xmin: 35.73927 ymin: 32.48942 xmax: 42.38901 ymax: 37.32029
+#&gt; epsg (SRID):    4326
+#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
