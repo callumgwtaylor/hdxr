@@ -47,6 +47,6 @@ hdx_resource_shapefile <- function(resources){
   sf::st_read(dsn = folder_location, layer = shapefile_name[[1,1]]) %>%
     dplyr::mutate(shapefile_name = shapefile_name[[1,1]]) %>%
     dplyr::as_data_frame() %>%
-    dplyr::group_by(shapefiles_name) %>%
+    dplyr::group_by(shapefile_name) %>%
     dplyr::mutate(resource_id = resource_id)
 }
