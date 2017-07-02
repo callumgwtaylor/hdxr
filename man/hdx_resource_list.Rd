@@ -2,18 +2,17 @@
 % Please edit documentation in R/hdx_resource_list_function.R
 \name{hdx_resource_list}
 \alias{hdx_resource_list}
-\title{HDX Resource List Function}
+\title{Expand resources from HDX Dataset Search}
 \usage{
 hdx_resource_list(package)
 }
 \arguments{
-\item{package}{Results of hdx_package_search in dataframe format}
+\item{package}{Results of hdx_dataset_search in dataframe format}
 }
 \description{
-This function modify the results of a hdx_package_search function. It will expand the resources section and left join that result onto the dataframe provided to it.
+This function modify the results of a hdx_dataset_search function.
+It will expand the resources section and left join these results onto the original dataframe.
 }
 \examples{
-hdx_resource_list()
+hdx_dataset_search() \%>\% hdx_resource_list()
 }
-\keyword{hdx}
-\keyword{resources}

@@ -1,12 +1,13 @@
-#' HDX Resource CSV Function
+#' Download and load CSV Resources
 #'
-#' This function modify the results of a hdx_resource_list function. It will download csvs when available, It will return results in a nested dataframe.
+#' This function modify the results of a hdx_resource_list function.
+#' It will download csvs when available, and return them in a nested dataframe.
+#'
 #' @param resources Results of hdx_resource_list
-#' @keywords resources hdx
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' hdx_resource_list()
+#' hdx_dataset_search() %>% hdx_resource_list() %>% hdx_resource_csv()
 
 hdx_resource_csv <- function(resources){
   hdx_read_url <- function(resources){
@@ -14,7 +15,7 @@ hdx_resource_csv <- function(resources){
   }
 
   dplyr::as_data_frame(resources) %>%
-    dplyr::select(format, hdx_rel_url, name.resources, name.package) %>%
+    dplyr::select(format, hdx_rel_url, name.resources, name.package, id) %>%
     dplyr::filter(format == "CSV") %>%
     dplyr::mutate(name.resources = stringr::str_replace_all(name.resources, " ", "_")) %>%
     dplyr::mutate(name.package = stringr::str_replace_all(name.package, " ", "_")) %>%
@@ -26,6 +27,7 @@ hdx_resource_csv <- function(resources){
     dplyr::group_by(dataset_identifier) %>%
     tidyr::nest(.key = location) %>%
     dplyr::mutate(hdx_rel_url = purrr::map_chr(location, "hdx_rel_url")) %>%
+    dplyr::mutate(id = purrr::map_chr(location, "id")) %>%
     dplyr::mutate(csv = purrr::map(location, hdx_read_url)) %>%
     dplyr::select(-location)
 }
