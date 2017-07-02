@@ -4,12 +4,14 @@
 \alias{hdx_dataset_search}
 \title{HDX Dataset Search Function}
 \usage{
-hdx_dataset_search(term = "*:*", rows = 10, start = NULL)
+hdx_dataset_search(term = "*:*", rows = 10, start = NULL, exact = FALSE)
 }
 \arguments{
 \item{term}{Title to search for. No default}
 
 \item{rows}{Max number of rows to return. Default is 10}
+
+\item{exact}{If exact = TRUE, will return only those datasets that exactly match the term provided. Default is FALSE}
 }
 \description{
 This function will create a data frame of search results from HDX
