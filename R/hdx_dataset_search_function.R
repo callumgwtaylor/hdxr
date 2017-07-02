@@ -21,7 +21,7 @@ hdx_dataset_search <- function(term = '*:*', rows = 10, start = NULL, exact = FA
 
   if(exact == TRUE){
     ckan_data %>%
-      filter(name == term)
+      dplyr::filter(name == term)
   } else{
   ckan_data
   }

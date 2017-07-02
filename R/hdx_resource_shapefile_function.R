@@ -38,7 +38,7 @@ hdx_resource_shapefile <- function(resources){
 
   # It takes those names and works out which ones are shp files, and filters them, it then cuts off the .shp bit and turns the result into a list
   shapefile_name <- file_names %>%
-    dplyr::mutate(shape_file = str_detect(value, ".shp$")) %>%
+    dplyr::mutate(shape_file = stringr::str_detect(value, ".shp$")) %>%
     dplyr::filter(shape_file == TRUE) %>%
     tidyr::separate(value, into = c("shape_file_name", "shape"), sep = "\\.") %>%
     dplyr::select(shape_file_name)
