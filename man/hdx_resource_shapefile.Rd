@@ -2,7 +2,7 @@
 % Please edit documentation in R/hdx_resource_shapefile_function.R
 \name{hdx_resource_shapefile}
 \alias{hdx_resource_shapefile}
-\title{HDX Resource Shapefile Function}
+\title{Download and load shapefiles as simple features}
 \usage{
 hdx_resource_shapefile(resources)
 }
@@ -10,10 +10,11 @@ hdx_resource_shapefile(resources)
 \item{resources}{Results of hdx_resource_list}
 }
 \description{
-This function modify the results of a hdx_resource_list function. It will download the first zipped shapefile found, and load it as a simple features dataframe.
+Humanitarian data exchange stores it's shapefiles as zipped files This function takes the results of the hdx_dataset_search,
+after being expanded by hdx_resource_list function, and downloads the first shapefile to the working directory.
+It will create a new folder with the name of the shapefile, and unzip the shapefiles into it.
+It will then load the first shapefile from this directory into the environment, in simple features format.
 }
 \examples{
-hdx_resource_shapefile()
+hdx_dataset_search() \%>\% hdx_resource_list() \%>\% hdx_resource_shapefile()
 }
-\keyword{hdx}
-\keyword{resources}

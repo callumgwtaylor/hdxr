@@ -2,18 +2,17 @@
 % Please edit documentation in R/hdx_dataset_list_function.R
 \name{hdx_dataset_list}
 \alias{hdx_dataset_list}
-\title{HDX Dataset List Function}
+\title{List HDX Datasets}
 \usage{
 hdx_dataset_list(limit = 5000)
 }
 \arguments{
-\item{limit}{Limit of packages to search for. Defaults to 5000}
+\item{limit}{Number of packages to search for. Defaults to 5000}
 }
 \description{
-This function will create a data frame of package titles
+This function will return the names of the first 5000 datasets from
+humanitarian data exchange, as a dataframe.
 }
 \examples{
 hdx_dataset_list()
 }
-\keyword{hdx}
-\keyword{list}

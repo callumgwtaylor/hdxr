@@ -1,39 +1,20 @@
 ---
-title: "README"
+title: "hdxr - interacting easily with the Humanitarian Data Exchange in R"
 author: "Callum Taylor"
-date: "8 June 2017"
-output: github_document
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(ckanr)
-library(tidyverse)
-library(jsonlite)
-library(dplyr)
-library(hdxr)
-```
-
-
-# hdxr
 
 hdxr is a package designed to allow you to interact with Humanitarian Data Exchange (HDX) in R, allowing for more reproducible workflow with humanitarian data.
 
-Currently it has functions, that can read information from:
+Currently it is a read only package, that gathers information from:
 
 - Datasets
 - Resources
-
-Installation:
-
-`library(devtools)`
-
-`install_github("callumgwtaylor/hdxr")`
-
-Load:
-
-`library(hdxr)`
-
 
 ## Connecting to HDX
 
@@ -108,68 +89,3 @@ afghanistan <- hdx_dataset_search(term = "afghanistan-roads") %>%
   hdx_resource_list() %>%
   hdx_resource_shapefile()
 ```
-
-
-
-# Example Usage
-
-```{r usage}
-
-hdx_connect()
-
-list <- hdx_dataset_list(500)
-
-dim(list)
-
-head(list)
-
-# Search for a specific package, then filter by title using dplyr
-dataset <- hdx_dataset_search("ACLED Conflict Data") %>%
-  filter(title == "ACLED Conflict Data for Algeria")
-
-# Or if you know the exact name, search directly for that
-
-dataset <- hdx_dataset_search("acled-conflict-data-for-algeria", exact = TRUE)
-
-names(dataset)
-
-# Expand the resources section from the search you just performed
-resources <- hdx_resource_list(dataset)
-
-# The results can also be piped:
-resources <- hdx_dataset_search("acled-conflict-data-for-algeria", exact = TRUE) %>%
-  hdx_resource_list()
-
-names(resources)
-
-# You can use column `format` to filter for the type of data you want
-resources$format
-
-# You can use column `hdx_rel_url` to find the address of the resource you want
-resources$hdx_rel_url
-
-# You can use hdx_resource_csv to download csv files from the server into a nested dataframe. This can all be done in a pipeline.
-
-kenya <- hdx_dataset_search("kenya-conflict-2012-2014", exact = TRUE) %>%
-  hdx_resource_list() %>%
-  hdx_resource_csv()
-
-kenya
-
-kenya %>%
-  unnest()
-
-# You can use hdx_resource_shapefiles to download the first shapefile from the server into a simple features pipeline. This can all be done in a pipeline.
-
-afghanistan <- hdx_dataset_search("afghanistan-roads", exact = TRUE) %>%
-  hdx_resource_list() %>%
-  hdx_resource_shapefile()
-
-afghanistan 
-```
-
-
-
-
-
-

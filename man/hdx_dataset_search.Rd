@@ -2,7 +2,7 @@
 % Please edit documentation in R/hdx_dataset_search_function.R
 \name{hdx_dataset_search}
 \alias{hdx_dataset_search}
-\title{HDX Dataset Search Function}
+\title{Search HDX for Datasets}
 \usage{
 hdx_dataset_search(term = "*:*", rows = 10, start = NULL, exact = FALSE)
 }
@@ -14,10 +14,12 @@ hdx_dataset_search(term = "*:*", rows = 10, start = NULL, exact = FALSE)
 \item{exact}{If exact = TRUE, will return only those datasets that exactly match the term provided. Default is FALSE}
 }
 \description{
-This function will create a data frame of search results from HDX
+This function will search the humanitarian data exchange for the term provided to it. It will return a dataframe of the results.
+If you are using the precise term and do not want any similar results, use the exact argument. If you want greater than ten results,
+use the rows argument.
 }
 \examples{
 hdx_dataset_search()
+hdx_dataset_search("afghanistan-roads", exact = TRUE)
+hdx_dataset_search(rows = 100)
 }
-\keyword{hdx}
-\keyword{search}

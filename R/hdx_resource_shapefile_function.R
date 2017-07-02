@@ -1,13 +1,15 @@
-#' HDX Resource Shapefile Function
+#' Download and load shapefiles as simple features
 #'
-#' This function modify the results of a hdx_resource_list function. It will download the first zipped shapefile found, and load it as a simple features dataframe.
+#' Humanitarian data exchange stores it's shapefiles as zipped files This function takes the results of the hdx_dataset_search,
+#' after being expanded by hdx_resource_list function, and downloads the first shapefile to the working directory.
+#' It will create a new folder with the name of the shapefile, and unzip the shapefiles into it.
+#' It will then load the first shapefile from this directory into the environment, in simple features format.
+#'
 #' @param resources Results of hdx_resource_list
-#' @keywords resources hdx
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' hdx_resource_shapefile()
-
+#' hdx_dataset_search() %>% hdx_resource_list() %>% hdx_resource_shapefile()
 
 hdx_resource_shapefile <- function(resources){
   # This takes the output of hdx_resource_list and looks for distinct urls to download zipped shapefiles from
@@ -17,8 +19,6 @@ hdx_resource_shapefile <- function(resources){
     dplyr::distinct(hdx_rel_url, .keep_all = TRUE) %>%
     tidyr::separate(name.resources, into = c("name_resources", "zip"),  sep = "\\.", remove = FALSE) %>%
     dplyr::mutate(hdx_rel_url = stringr::str_replace(hdx_rel_url, "/dataset/", "https://data.humdata.org/dataset/"))
-
-
 
   # This creates a set of variables, that will be referred to at later points
   resource_id <- hdx_shapefiles$id[1]
@@ -31,7 +31,6 @@ hdx_resource_shapefile <- function(resources){
   dir.create(folder_name)
   utils::unzip(file_name, overwrite = TRUE, exdir = folder_name)
 
-
   # This section  works out what we've just downloaded and extracts the names
   file_names <- dir(folder_location) %>%
     dplyr::as_data_frame()
@@ -42,7 +41,6 @@ hdx_resource_shapefile <- function(resources){
     dplyr::filter(shape_file == TRUE) %>%
     tidyr::separate(value, into = c("shape_file_name", "shape"), sep = "\\.") %>%
     dplyr::select(shape_file_name)
-
 
   sf::st_read(dsn = folder_location, layer = shapefile_name[[1,1]]) %>%
     dplyr::mutate(shapefile_name = shapefile_name[[1,1]]) %>%

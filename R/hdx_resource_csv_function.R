@@ -1,12 +1,13 @@
-#' HDX Resource CSV Function
+#' Download and load CSV Resources
 #'
-#' This function modify the results of a hdx_resource_list function. It will download csvs when available, It will return results in a nested dataframe.
+#' This function modify the results of a hdx_resource_list function.
+#' It will download csvs when available, and return them in a nested dataframe.
+#'
 #' @param resources Results of hdx_resource_list
-#' @keywords resources hdx
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' hdx_resource_csv()
+#' hdx_dataset_search() %>% hdx_resource_list() %>% hdx_resource_csv()
 
 hdx_resource_csv <- function(resources){
   hdx_read_url <- function(resources){

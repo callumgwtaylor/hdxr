@@ -2,15 +2,14 @@
 % Please edit documentation in R/hdx_connect_function.R
 \name{hdx_connect}
 \alias{hdx_connect}
-\title{HDX Connect Function}
+\title{Connect to HDX}
 \usage{
 hdx_connect()
 }
 \description{
-This function connects you to the CKAN server for HDX
+This function uses ckanr to connect to the humanitarian data
+exchange.
 }
 \examples{
 hdx_connect()
 }
-\keyword{connect}
-\keyword{hdx}

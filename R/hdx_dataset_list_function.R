@@ -1,8 +1,9 @@
-#' HDX Dataset List Function
+#' List HDX Datasets
 #'
-#' This function will create a data frame of package titles
-#' @param limit Limit of packages to search for. Defaults to 5000
-#' @keywords list hdx
+#' This function will return the names of the first 5000 datasets from
+#' humanitarian data exchange, as a dataframe.
+#'
+#' @param limit Number of packages to search for. Defaults to 5000
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
