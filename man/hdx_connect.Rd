@@ -4,7 +4,7 @@
 \alias{hdx_connect}
 \title{Connect to HDX}
 \usage{
-hdx_connect()
+hdx_connect(...)
 }
 \description{
 This function uses ckanr to connect to the humanitarian data
