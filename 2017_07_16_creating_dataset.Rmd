@@ -1,0 +1,46 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Connecting to R to create a dataset:
+
+```{r hdx_connect}
+library(hdxr)
+library(tidyverse)
+key = "888f4d7a-9dbc-4dd4-92aa-3024f190fca6"
+hdx_connect_test(key = key)
+```
+
+```{r find_organisation}
+organisations <- ckanr::organization_list(as = "table") %>%
+  filter(name == "test-r")
+```
+
+```{r explore_organisation}
+glimpse(organisations)
+
+id <- organisations$id
+```
+
+```{r create_dataset}
+# dataset <- " \"dataset_source\": \"test-r\""
+
+hdx_dataset_create(name = "20170717_1245_test",
+               title = "20170717_1245_test",
+               notes = "This is a test dataset for CKANR use on HDX",
+               dataset_source = "test-r",
+               author = "Callum Taylor",
+               license_id = "cc-by-igo",
+               owner_org = id,
+               key = key)
+```
+
+Currently:
+I have updated hdx_connect to create hdx_connect_test for test-data.humdata
+I have updated hdx_connect to allow api keys included
+I can connect to the test-data server
+I can find my organisation
+I can extract my ID
+
+I can create a new dataset. I can do this through copying across ckanr::package_create() and adding some new arguments to it. I feel like this is just failing to use the extras argument of package_create properly.
